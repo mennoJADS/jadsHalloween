@@ -1,0 +1,52 @@
+
+#intro {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#succesScreen {
+    height: 100vh;
+    width: 100vw;
+    background: #2ecc71;
+    display: none;
+}
+
+.resultText {
+    font-size: 30vh;
+    line-height: 100vh;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    text-align: center;
+}
+
+#failureCode{
+    font-size: 20vh;
+    line-height: 75vh;
+}
+
+#failureScreen {
+    height: 100vh;
+    width: 100vw;
+    background: #c0392b;
+    display: none;
+}
+
+#timerText {
+    width: 160px;
+    margin: 0 auto;
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 0 0 8px 8px;
+}
+
+#failurePrice{
+    font-size: 40px;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+}

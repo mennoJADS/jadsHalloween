@@ -1,0 +1,86 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.battery {
+    height: 60vh;
+    margin-top: 20vh;
+    width: 80%;
+    margin-left: 10%;
+    background: #ccc;
+    position: relative;
+    float: left;
+    border-radius: 5px;
+}
+
+.batteryKnob {
+    background: #ccc;
+    width: 50%;
+    margin-left: 25%;
+    height: 7.5%;
+    margin-top: -7.5%;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+}
+
+.levelContainer {
+    height: 17.5%;
+    width: 90%;
+    margin: 5% 0 0 5%;
+    float: left;
+    border-radius: 5px;
+    padding: 4px;
+    background: red;
+}
+
+.level {
+    background: #444;
+    height: 100%;
+    width: 100%;
+}
+
+.topLevel {
+    margin-top: 15%;
+}
+
+.green {
+    background: #2ecc71;
+}
+
+.green .progress-bar {
+    background: #2ecc71;
+}
+
+.orange {
+    background: #f1c40f;
+}
+
+.orange .progress-bar {
+    background: #f1c40f;
+}
+
+.red {
+    background: #e74c3c;
+}
+
+.red .progress-bar {
+    background: #e74c3c;
+}
+
+.blue {
+    background: #3498db;
+}
+
+.blue .progress-bar {
+    background: #3498db;
+}
+
+.greenBlue {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #ff0000 20px, #ff0000 30px);
+}
+
+.greenBlue .progress-bar {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #ff0000 20px, #ff0000 30px);
+}
