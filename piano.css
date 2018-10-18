@@ -1,0 +1,52 @@
+.circleContainer{
+    width: 12.5vw;
+    height: 100vh;
+    float:left;
+    position: relative;
+}
+
+.circle{
+    width: 10vw;
+    height: 10vw;
+    background: #fff;
+    border-radius: 5vw;
+    margin: 0 auto;
+    margin-top: calc(50vh - 5vw - 60px);
+    border: 5px solid #2c3e50;
+    vertical-align: middle;
+    line-height: 9vw;
+    font-size: 6vw;
+    text-align: center;
+
+}
+.circle span {
+    display: inline-block;
+    vertical-align: middle;
+
+  }
+
+
+.circle.shake {
+animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+transform: translate3d(0, 0, 0);
+backface-visibility: hidden;
+perspective: 1000px;
+}
+
+@keyframes shake {
+10%, 90% {
+    transform: translate3d(-10px, 0, 0);
+}
+
+20%, 80% {
+    transform: translate3d(20px, 0, 0);
+}
+
+30%, 50%, 70% {
+    transform: translate3d(-40px, 0, 0);
+}
+
+40%, 60% {
+    transform: translate3d(40px, 0, 0);
+}
+}
