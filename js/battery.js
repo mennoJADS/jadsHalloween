@@ -7,7 +7,6 @@
 class BatteryGame {
     constructor() {
         self = this
-        self.playVideo()
 
         $('#b1 #l1').addClass('greenBlue')
         $('#b1 #l2').addClass('orange')
