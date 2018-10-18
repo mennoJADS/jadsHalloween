@@ -11,8 +11,8 @@ class BomGame {
 
 
         this.defusePattern = [{
-            'switch': 'red'
-            'cut': 'black'
+            'switch': 'red',
+            'cut': 'black',
             'notouch': 'blue'
         }]
 
