@@ -36,7 +36,6 @@ function initializeClock() {
     let id = 'timerText'
     let tt = new Date()
     let endtime = tt.setSeconds(tt.getSeconds() + 120);
-    console.log(endtime)
     let clock = document.getElementById(id);
     let timeinterval = setInterval(function () {
         let t = getTimeRemaining(endtime);

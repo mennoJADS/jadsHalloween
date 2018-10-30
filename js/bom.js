@@ -1,8 +1,9 @@
 'use strict'
 
-//red = a
-// black = s
-/// blue = d
+// blue = w
+// red = a
+// yellow = s
+// black = earth
 
 "use strict";
 class BomGame {
@@ -10,104 +11,108 @@ class BomGame {
         self = this
 
 
-        this.defusePattern = [{
-            'switch': 'red',
-            'cut': 'black',
-            'notouch': 'blue'
-        }]
+        this.rightSteps = 0
+        this.rightStepsdone = []
+
+
+        this.defusePattern = {
+            'red': 'cut',
+            'blue': 'switchToD',
+            'yellow': 'switchToF'   
+        }
 
         $(window).keyup(function (event) {
-            if (event.key == 'a') {
-                let explode = this.checkColor('red')
-                if(explode == false){
-
-                }
+            if (    event.key == "ArrowLeft" ||
+                    event.key == "ArrowRight" ||
+                    event.key == "ArrowUp" ||
+                    event.key == "ArrowDown" ||
+                    event.key == 'd' ||
+                    event.key == 'f' ||
+                    event.key == 'g'
+            ){
+                self.explode()
             }
-            else if (event.key == 's') {
-                let explode = this.checkColor('red')
-
-            } else if (event.key == 'd') {
-                let explode = this.checkColor('red')
+            if (event.key == 'w') {
+                self.checkColor('blue')
             }
+            else if (event.key == 'a') {
+                self.checkColor('red')
+
+            } else if (event.key == 's') {
+                self.checkColor('yellow')
+            } 
         });
 
         $(window).keydown(function (event) {
-            $(window).keyup(function (event) {
-            if (event.key == 'a') {
-                let explode = this.checkDownColor('red')
-                if(explode == false){
-                    
+            console.log(event.key)
+            console.log(!self.rightStepsdone.includes('switchToD'))
+            if (event.key == 'd' &&  (! self.rightStepsdone.includes('switchToD'))) {
+                if(self.defusePattern[self.switchColor] == 'switchToD'){
+                    clearTimeout(self.switchCountDown);
+                    self.rightSteps += 1
+                    self.rightStepsdone.push('switchToD')
+                    self.checkGameSuccess()
+                }else{
+                    self.explode()
                 }
             }
-            else if (event.key == 's') {
-                let explode = this.checkColor('red')
-
-            } else if (event.key == 'd') {
-                let explode = this.checkColor('red')
+            else if (event.key == 'f' &&  (! self.rightStepsdone.includes('switchToF'))) {
+                if(self.defusePattern[self.switchColor] == 'switchToF'){
+                    clearTimeout(self.switchCountDown);
+                    self.rightSteps += 1
+                    self.rightStepsdone.push('switchToF')
+                    self.checkGameSuccess()
+                }else{
+                    self.explode()
+                }
+            } else if (event.key == 'g' &&  (! self.rightStepsdone.includes('switchToG'))) {
+                if(self.defusePattern[self.switchColor] == 'switchToG'){
+                    clearTimeout(self.switchCountDown);
+                    self.rightSteps += 1
+                    self.rightStepsdone.push('switchToG')
+                    self.checkGameSuccess()
+                }else{
+                    self.explode()
+                }
             }
         });
-        });
 
+    }
+
+    explode(){
+        alert('die die die')
     }
 
     checkColor(color){
-        if (this.defusePattern[color] == 'notouch'){
-            return true
-        }else if (this.defusePattern[color] == 'cut'){
+        console.log(color)
+        console.log(this.defusePattern[color])
+        if (this.defusePattern[color] == 'cut' && (! this.rightStepsdone.includes(color))){
+            this.rightStepsdone.push(color)
+            this.rightSteps += 1
+            this.checkGameSuccess()
             return false
-        }else if (this.defusePattern[color] == 'switch'){
-            this.switchTimer = 250
+        }else if (  this.defusePattern[color] == 'switchToD' || 
+                    this.defusePattern[color] == 'switchToF' || 
+                    this.defusePattern[color] == 'switchToG' ){
+            console.log('switch detected ')
+            this.switchCountDown = setTimeout(function(){alert('die die die')}, 5000);
+            console.log('switch detected ')
+
+            this.switchColor = color
+            console.log(this.switchColor)
+
             return false
         }
+        this.explode()
     }
 
-    checkDownColor(){
-        if (this.defusePattern[color] == 'notouch'){
-            return false
-        }else if (this.defusePattern[color] == 'cut'){
-            return true
-        }else if (this.defusePattern[color] == 'switch'){
-            this.switchTimer = 250
-            return false
+    checkGameSuccess(){
+        console.log('checking right')
+        console.log(this.rightSteps)
+        if (this.rightSteps == 3){
+            alert('DEFUSED YEEY')
         }
     }
-
-    incrementProgressBar(currentProgessBar) {
-        let value = parseInt($(currentProgessBar).attr('aria-valuenow'))
-        if (value < 100) {
-            value += 2;
-            console.log(value)
-            $(currentProgessBar).css('width', value + '%').attr('aria-valuenow', value);
-        } else {
-            self.incrementLevel()
-        }
-    }
-
-    decrementProgressBar(currentProgessBar) {
-        let value = parseInt($(currentProgessBar).attr('aria-valuenow'))
-        if (value > 0) {
-            value -= 2;
-            console.log(value)
-            $(currentProgessBar).css('width', value + '%').attr('aria-valuenow', value);
-        } else {
-            self.decrementLevel()
-        }
-    }
-
-    incrementLevel() {
-        if ((this.activeLevel == 1) && (this.activeBattery == 3)) {
-            this.gameSucces()
-        }
-        if (this.activeLevel < 4) {
-            this.activeLevel += 1
-        } else {
-            this.activeLevel = 1
-            this.activeBattery += 1
-        }
-    }
-
-
-
 }
 
 $(document).ready(function () {
