@@ -71,10 +71,81 @@
     background: #3498db;
 }
 
-.greenBlue {
-    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #ff0000 20px, #ff0000 30px);
+
+.allcolors{
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #e74c3c 20px, #e74c3c 30px,  #f1c40f 30px, #f1c40f 40px);
 }
 
-.greenBlue .progress-bar {
-    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #ff0000 20px, #ff0000 30px);
+.allcolors .progress-bar{
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #e74c3c 20px, #e74c3c 30px,  #f1c40f 30px, #f1c40f 40px);
+}
+
+.greenbluered {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #e74c3c 20px, #e74c3c 30px);
+}
+
+.greenbluered .progress-bar{
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #e74c3c 20px, #e74c3c 30px);
+}
+
+.greenyellowred {
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #f1c40f 10px, #f1c40f 20px, #e74c3c 20px, #e74c3c 30px);
+}
+
+.greenyellowred .progress-bar{
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #f1c40f 10px, #f1c40f 20px, #e74c3c 20px, #e74c3c 30px);
+}
+
+.greenbluered .progress-bar {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px, #e74c3c 20px, #e74c3c 30px);
+}
+
+
+.greenblue {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px);
+}
+
+.greenblue .progress-bar {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #2ecc71 10px, #2ecc71 20px);
+}
+
+.greenred {
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+.greenred .progress-bar{
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+
+.greenorange {
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #f1c40f 10px, #f1c40f 20px);
+}
+
+.greenorange .progress-bar{
+    background: repeating-linear-gradient( -55deg, #2ecc71, #2ecc71 10px, #f1c40f 10px, #f1c40f 20px);
+}
+
+.redblue {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+.redblue .progress-bar {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+.redorange {
+    background: repeating-linear-gradient( -55deg, #f1c40f, #f1c40f 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+.redorange .progress-bar {
+    background: repeating-linear-gradient( -55deg, #f1c40f, #f1c40f 10px, #e74c3c 10px, #e74c3c 20px);
+}
+
+.blueorange {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #f1c40f 10px, #f1c40f 20px);
+}
+
+.blueorange .progress-bar {
+    background: repeating-linear-gradient( -55deg, #3498db, #3498db 10px, #f1c40f 10px, #f1c40f 20px);
 }

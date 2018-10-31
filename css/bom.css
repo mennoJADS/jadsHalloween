@@ -6,3 +6,9 @@
     font-size: 25vw;
     color: #e74c3c;
 }
+
+
+#timerText.lastMinute{
+    color: #fff;
+    background: #c0392b;
+}

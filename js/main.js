@@ -19,7 +19,9 @@ function getTimeRemaining(endtime) {
     var minutes = Math.floor((t / 1000 / 60) % 60);
     if (minutes < 1) {
         $('#timerText').css("background-color", "#c0392b");
-
+        if(bom == true){
+            $('#timerText').addClass('lastMinute');
+        }
     }
     if ((minutes == 0) && (seconds == 0)) {
         if(bom == true){
@@ -39,7 +41,7 @@ function getTimeRemaining(endtime) {
 function initializeClock() {
     let id = 'timerText'
     let tt = new Date()
-    let endtime = tt.setSeconds(tt.getSeconds() + 10);
+    let endtime = tt.setSeconds(tt.getSeconds() + 601);
     let clock = document.getElementById(id);
     let timeinterval = setInterval(function () {
         let t = getTimeRemaining(endtime);
