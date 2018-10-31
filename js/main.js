@@ -22,7 +22,11 @@ function getTimeRemaining(endtime) {
 
     }
     if ((minutes == 0) && (seconds == 0)) {
-        gameFailure()
+        if(bom == true){
+            explode()
+        }else{
+            gameFailure()
+        }
         return
     }
     return {
@@ -35,7 +39,7 @@ function getTimeRemaining(endtime) {
 function initializeClock() {
     let id = 'timerText'
     let tt = new Date()
-    let endtime = tt.setSeconds(tt.getSeconds() + 120);
+    let endtime = tt.setSeconds(tt.getSeconds() + 10);
     let clock = document.getElementById(id);
     let timeinterval = setInterval(function () {
         let t = getTimeRemaining(endtime);
@@ -49,15 +53,22 @@ function initializeClock() {
 function gameSucces() {
     $('#intro').hide()
     $('#succesScreen').show()
-    $('#succesCode').text('RX')
+    $('#succesCode').text(letters[group])
+    $('#succesPosition').text(position[group])
+
 }
 
-function gameFailure() {
-    let letter = 'X'
+function explode(){
     $('#intro').hide()
     $('#failureScreen').show()
     $('#failureCode').text('GAME OVER')
-    $('#failurePrice').text('Troostletter: ' + letter)
+}
+
+function gameFailure() {
+    $('#intro').hide()
+    $('#failureScreen').show()
+    $('#failureCode').text('GAME OVER')
+    $('#failurePrice').text('Troostletter: ' + letters[group])
 }
 
 

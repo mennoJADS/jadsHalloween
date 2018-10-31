@@ -5,7 +5,15 @@
 // yellow = s
 // black = earth
 
+
+
 "use strict";
+
+let letters = ['S','E','N','B','L','I','J','F','N','O']
+let position = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+let group = null
+let bom = true
+
 class BomGame {
     constructor() {
         self = this
@@ -16,8 +24,8 @@ class BomGame {
 
 
         this.defusePattern = {
-            'red': 'cut',
             'blue': 'switchToD',
+            'red': 'cut',
             'yellow': 'switchToF'   
         }
 
@@ -30,7 +38,7 @@ class BomGame {
                     event.key == 'f' ||
                     event.key == 'g'
             ){
-                self.explode()
+                explode()
             }
             if (event.key == 'w') {
                 self.checkColor('blue')
@@ -44,16 +52,29 @@ class BomGame {
         });
 
         $(window).keydown(function (event) {
+            if (event.key >= 0 && event.key <= 9 && event.target == document.body) {
+                playVideo()
+                group = event.key
+                return
+            }    
+
+            if (event.keyCode == 32 && event.target == document.body) {
+                self.resetGame()
+                return
+            }
+
             console.log(event.key)
             console.log(!self.rightStepsdone.includes('switchToD'))
+            console.log(self.defusePattern[self.switchColor] == 'switchToD')
             if (event.key == 'd' &&  (! self.rightStepsdone.includes('switchToD'))) {
+                console.log('t')
                 if(self.defusePattern[self.switchColor] == 'switchToD'){
                     clearTimeout(self.switchCountDown);
                     self.rightSteps += 1
                     self.rightStepsdone.push('switchToD')
                     self.checkGameSuccess()
                 }else{
-                    self.explode()
+                    explode()
                 }
             }
             else if (event.key == 'f' &&  (! self.rightStepsdone.includes('switchToF'))) {
@@ -63,7 +84,7 @@ class BomGame {
                     self.rightStepsdone.push('switchToF')
                     self.checkGameSuccess()
                 }else{
-                    self.explode()
+                    explode()
                 }
             } else if (event.key == 'g' &&  (! self.rightStepsdone.includes('switchToG'))) {
                 if(self.defusePattern[self.switchColor] == 'switchToG'){
@@ -72,15 +93,11 @@ class BomGame {
                     self.rightStepsdone.push('switchToG')
                     self.checkGameSuccess()
                 }else{
-                    self.explode()
+                    explode()
                 }
             }
         });
 
-    }
-
-    explode(){
-        alert('die die die')
     }
 
     checkColor(color){
@@ -95,22 +112,21 @@ class BomGame {
                     this.defusePattern[color] == 'switchToF' || 
                     this.defusePattern[color] == 'switchToG' ){
             console.log('switch detected ')
-            this.switchCountDown = setTimeout(function(){alert('die die die')}, 5000);
+            this.switchCountDown = setTimeout(function(){explode()}, 5000);
             console.log('switch detected ')
-
             this.switchColor = color
             console.log(this.switchColor)
 
             return false
         }
-        this.explode()
+        explode()
     }
 
     checkGameSuccess(){
         console.log('checking right')
         console.log(this.rightSteps)
         if (this.rightSteps == 3){
-            alert('DEFUSED YEEY')
+            gameSucces()
         }
     }
 }

@@ -27,6 +27,17 @@ body {
     text-align: center;
 }
 
+.positionText {
+    font-size: 14vh;
+    line-height: 100vh;
+    margin: 0;
+    margin-top: -70vh;
+    color: #fff;
+    padding: 0;
+    width: 100vw;
+    text-align: center;
+}
+
 #failureCode{
     font-size: 20vh;
     line-height: 75vh;

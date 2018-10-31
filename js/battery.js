@@ -4,6 +4,12 @@
 //red = d
 
 "use strict";
+
+let letters = ['U','W','E','G','B','I','J','O','N','Z']
+let position = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+let group = null
+let bom = false
+
 class BatteryGame {
     constructor() {
         self = this
@@ -61,11 +67,17 @@ class BatteryGame {
         console.log(this.batteries[this.activeBattery][this.activeLevel])
 
         $(window).keydown(function (event) {
+            if (event.key >= 0 && event.key <= 9 && event.target == document.body) {
+                playVideo()
+                group = event.key
+                return
+            }    
+
             if (event.keyCode == 32 && event.target == document.body) {
-                event.preventDefault();
                 self.resetGame()
                 return
             }
+
             self.keys[event.key] = true;
             self.keyPress == true
             console.log(self.batteries)

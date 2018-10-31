@@ -3,10 +3,23 @@
 ///orange = s
 //red = d
 
+
+
+
 "use strict";
+
+let letters = ['V','E','R','L','A','A','T','J','A','D']
+let position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let group = null
+let bom = false
+
+
+
 class PianoGame {
     constructor() {
         self = this
+
+
         $('#b1 #l1').addClass('greenBlue')
         $('#b1 #l2').addClass('orange')
         $('#b1 #l3').addClass('red')
@@ -54,9 +67,7 @@ class PianoGame {
         }]
         this.keys = {};
         this.gameInProgress = false
-
-
-
+    
         this.currentColor = this.batteries[0][1]
         console.log(this.currentColor)
         console.log(this.batteries[this.activeBattery][this.activeLevel])
@@ -65,24 +76,22 @@ class PianoGame {
         this.noteSequence = []
         let audio = document.getElementById("noteF");
 
-
-    
             $(window).keydown(function (event) {
 
+            if (event.key >= 0 && event.key <= 9 && event.target == document.body) {
+                playVideo()
+                group = event.key
+                return
+            }    
+
             if (event.keyCode == 32 && event.target == document.body) {
-                if(self.gameInProgress == true){
-                    self.resetGame()
-                    return
-                }else{            
-                    playVideo()
-                    return;
-                }
+                self.resetGame()
+                return
             }
             self.keys[event.key] = true;
             let activeNoteID = '#n' + String(self.activeNote)
             let nrKeys = Object.keys(self.keys).length;
 
-            console.log(self.keys)
 
             if (event.key == 'w' && nrKeys == 1) {
                 audio.pause()
@@ -205,7 +214,7 @@ class PianoGame {
         if(this.arraysEqual(self.noteSequence, checkArray)){
             gameSucces()
         }else{
-            this.fff()
+            this.buzz()
         }
     }
 
@@ -225,7 +234,7 @@ class PianoGame {
         return true;
     }
 
-    fff(){
+    buzz(){
         //todo play wrong sound
         console.log('reset')
         let audioError = document.getElementById("error");
@@ -240,9 +249,6 @@ class PianoGame {
         this.activeNote = 1
         this.noteSequence = []
     }
-
-
-
 }
 
 $(document).ready(function () {
