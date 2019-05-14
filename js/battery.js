@@ -5,8 +5,8 @@
 
 "use strict";
 
-let letters = ['U','W','E','G','B','I','J','O','N','Z']
-let position = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+let letters = ['T L','I L','S','K','D E','L A','R A','G O']
+let position = ['3  2', '2  6', 5, 4, '5  2', '3  5', '4  2', '3  1']
 let group = null
 let bom = false
 
@@ -61,7 +61,7 @@ class BatteryGame {
         }]
         this.keys = {};
 
-       
+
         this.currentColor = this.batteries[0][1]
         console.log(this.currentColor)
         console.log(this.batteries[this.activeBattery][this.activeLevel])
@@ -71,7 +71,7 @@ class BatteryGame {
                 playVideo()
                 group = event.key
                 return
-            }    
+            }
 
             if (event.keyCode == 32 && event.target == document.body) {
                 self.resetGame()
@@ -90,7 +90,7 @@ class BatteryGame {
             console.log(currentColor)
             console.log(self.keys)
 
-           
+
             if(currentColor == 'greenyellowred' && 's' in self.keys && 'a' in self.keys && 'd' && nrKeys == 3){
                 self.incrementProgressBar(currentProgessBar)
             }
@@ -118,7 +118,7 @@ class BatteryGame {
             }else if (currentColor == 'red' && event.key == 'd' && nrKeys == 1) {
                 self.incrementProgressBar(currentProgessBar)
             }
-            
+
         });
 
 
@@ -140,7 +140,7 @@ class BatteryGame {
         }
     }
 
-    
+
     incrementLevel() {
         if ((this.activeLevel == 4) && (this.activeBattery == 3)){
             gameSucces()

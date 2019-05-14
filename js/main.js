@@ -1,13 +1,7 @@
 $(document).ready(function () {
     $(window).keydown(function (event) {
         if (event.keyCode == 32 && event.target == document.body) {
-            if (this.gameInProgress == true) {
-                resetGame()
-                return
-            } else {
-                playVideo()
-                return;
-            }
+          resetGame()
         }
     })
 });
@@ -41,7 +35,7 @@ function getTimeRemaining(endtime) {
 function initializeClock() {
     let id = 'timerText'
     let tt = new Date()
-    let endtime = tt.setSeconds(tt.getSeconds() + 601);
+    let endtime = tt.setSeconds(tt.getSeconds() + 1201);
     let clock = document.getElementById(id);
     let timeinterval = setInterval(function () {
         let t = getTimeRemaining(endtime);
@@ -54,23 +48,25 @@ function initializeClock() {
 
 function gameSucces() {
     $('#intro').hide()
+    $('#gameScreen').hide()
     $('#succesScreen').show()
-    $('#succesCode').text(letters[group])
-    $('#succesPosition').text(position[group])
-
+    $('#succesCode').text(letters[group-1])
+    $('#succesPosition').text(position[group-1])
 }
 
 function explode(){
     $('#intro').hide()
+    $('#gameScreen').hide()
     $('#failureScreen').show()
     $('#failureCode').text('GAME OVER')
 }
 
 function gameFailure() {
     $('#intro').hide()
+    $('#gameScreen').hide()
     $('#failureScreen').show()
     $('#failureCode').text('GAME OVER')
-    $('#failurePrice').text('Troostletter: ' + letters[group])
+    $('#failurePrice').text('Troostletter: ' + letters[group-1])
 }
 
 

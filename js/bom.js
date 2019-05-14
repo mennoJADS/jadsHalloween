@@ -9,8 +9,8 @@
 
 "use strict";
 
-let letters = ['S','E','N','B','L','I','J','F','N','O']
-let position = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+let letters = ['A A','E J','K U','L','E','P A','A','L']
+let position = ['1  5', '5  3', '1  3', 3, 4, '1 4', 3, 5]
 let group = null
 let bom = true
 
@@ -26,7 +26,7 @@ class BomGame {
         this.defusePattern = {
             'blue': 'switchToD',
             'red': 'cut',
-            'yellow': 'switchToF'   
+            'yellow': 'switchToF'
         }
 
         $(window).keyup(function (event) {
@@ -48,18 +48,13 @@ class BomGame {
 
             } else if (event.key == 's') {
                 self.checkColor('yellow')
-            } 
+            }
         });
 
         $(window).keydown(function (event) {
             if (event.key >= 0 && event.key <= 9 && event.target == document.body) {
                 playVideo()
                 group = event.key
-                return
-            }    
-
-            if (event.keyCode == 32 && event.target == document.body) {
-                self.resetGame()
                 return
             }
 
@@ -108,11 +103,11 @@ class BomGame {
             this.rightSteps += 1
             this.checkGameSuccess()
             return false
-        }else if (  this.defusePattern[color] == 'switchToD' || 
-                    this.defusePattern[color] == 'switchToF' || 
+        }else if (  this.defusePattern[color] == 'switchToD' ||
+                    this.defusePattern[color] == 'switchToF' ||
                     this.defusePattern[color] == 'switchToG' ){
             console.log('switch detected ')
-            this.switchCountDown = setTimeout(function(){explode()}, 5000);
+            this.switchCountDown = setTimeout(function(){explode()}, 15000);
             console.log('switch detected ')
             this.switchColor = color
             console.log(this.switchColor)

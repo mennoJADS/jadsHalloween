@@ -1,15 +1,8 @@
-//blue = w
-//green = a
-///orange = s
-//red = d
-
-
-
-
 "use strict";
 
-let letters = ['V','E','R','L','A','A','T','J','A','D']
-let position = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let letters = ['A','B','I','K','B','I','S','R']
+let position = [4, 4, 4, 1, 3, 2, 5, 2]
+let checkArray = ['B','A','G','A','B','B','B','C']
 let group = null
 let bom = false
 
@@ -67,7 +60,7 @@ class PianoGame {
         }]
         this.keys = {};
         this.gameInProgress = false
-    
+
         this.currentColor = this.batteries[0][1]
         console.log(this.currentColor)
         console.log(this.batteries[this.activeBattery][this.activeLevel])
@@ -82,12 +75,8 @@ class PianoGame {
                 playVideo()
                 group = event.key
                 return
-            }    
-
-            if (event.keyCode == 32 && event.target == document.body) {
-                self.resetGame()
-                return
             }
+
             self.keys[event.key] = true;
             let activeNoteID = '#n' + String(self.activeNote)
             let nrKeys = Object.keys(self.keys).length;
@@ -209,7 +198,6 @@ class PianoGame {
     }
 
     checkSequence() {
-        let checkArray = ['C','C','C','C','C','C','C','C']
         console.log(self.noteSequence)
         if(this.arraysEqual(self.noteSequence, checkArray)){
             gameSucces()
@@ -236,14 +224,13 @@ class PianoGame {
 
     buzz(){
         //todo play wrong sound
-        console.log('reset')
         let audioError = document.getElementById("error");
         audioError.play()
         $('.circle').text()
         $('.circle').css({'background': '#fff'})
         $('.circle').css({'border-color': '#2c3e50'})
         $('.circle').addClass('shake')
-        setTimeout(function(){ 
+        setTimeout(function(){
             $('.circle').removeClass('shake')
          }, 510);
         this.activeNote = 1
