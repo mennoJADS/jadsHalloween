@@ -1,2 +1,4 @@
 *.m4v
 *.mov
+*.DS_store
+*/movies

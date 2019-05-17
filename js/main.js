@@ -50,7 +50,7 @@ function gameSucces() {
     $('#intro').hide()
     $('#gameScreen').hide()
     $('#succesScreen').show()
-    $('#succesCode').text(letters[group-1])
+    $('#succesCode').text(letters[group-1].toLowerCase())
     $('#succesPosition').text(position[group-1])
 }
 
@@ -66,7 +66,7 @@ function gameFailure() {
     $('#gameScreen').hide()
     $('#failureScreen').show()
     $('#failureCode').text('GAME OVER')
-    $('#failurePrice').text('Troostletter: ' + letters[group-1])
+    $('#failurePrice').text('Troostletter: ' + letters[group-1].toLowerCase())
 }
 
 
