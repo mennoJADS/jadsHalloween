@@ -107,7 +107,7 @@ class BomGame {
                     this.defusePattern[color] == 'switchToF' ||
                     this.defusePattern[color] == 'switchToG' ){
             console.log('switch detected ')
-            this.switchCountDown = setTimeout(function(){explode()}, 30000);
+            this.switchCountDown = setTimeout(function(){explode()}, 15000);
             console.log('switch detected ')
             this.switchColor = color
             console.log(this.switchColor)

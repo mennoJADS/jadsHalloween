@@ -1,11 +1,11 @@
-//blue = w
-//green = a
-///orange = s
-//red = d
+//blue = w | ArrowUp
+//green = a | ArrowDown
+///yellow = s | ArrowLeft
+//red = d | ArrowRight
 
 "use strict";
 
-let letters = ['T L','I L','S','K','D E','L A','R A','G O']
+let letters = ['T L','I L','ArrowLeft','K','D E','L A','R A','G O']
 let position = ['3  2', '2  6', 5, 4, '5  2', '3  5', '4  2', '3  1']
 let group = null
 let bom = false
@@ -80,42 +80,42 @@ class BatteryGame {
 
             self.keys[event.key] = true;
             self.keyPress == true
-            console.log(self.batteries)
+            //console.log(self.batteries)
             let activeBatteryID = '#b' + String(self.activeBattery + 1)
             let activeLevelID = '#l' + String(self.activeLevel)
             let currentColor = self.batteries[self.activeBattery][self.activeLevel]
             let currentProgessBar = activeBatteryID + ' ' + activeLevelID + ' .progress-bar'
             let nrKeys = Object.keys(self.keys).length;
 
-            console.log(currentColor)
-            console.log(self.keys)
+            //console.log(currentColor)
+            //console.log(self.keys)
 
 
-            if(currentColor == 'greenyellowred' && 's' in self.keys && 'a' in self.keys && 'd' && nrKeys == 3){
+            if(currentColor == 'greenyellowred' && 'ArrowLeft' in self.keys && 'ArrowDown' in self.keys && 'ArrowLeft' && nrKeys == 3){
                 self.incrementProgressBar(currentProgessBar)
             }
-            else if (currentColor == 'greenbluered' && 'w' in self.keys && 'a' in self.keys && 'd' in self.keys && nrKeys == 3){
+            else if (currentColor == 'greenbluered' && 'ArrowUp' in self.keys && 'ArrowDown' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 3){
                 self.incrementProgressBar(currentProgessBar)
             }
-            else if (currentColor == 'greenorange' && 'a' in self.keys && 's' in self.keys && nrKeys == 2){
+            else if (currentColor == 'greenorange' && 'ArrowDown' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'redblue' && 'w' in self.keys && 'd' in self.keys && nrKeys == 2){
+            }else if (currentColor == 'redblue' && 'ArrowUp' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'redorange' && 'd' in self.keys && 's' in self.keys && nrKeys == 2){
+            }else if (currentColor == 'redorange' && 'ArrowLeft' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'greenblue' && 'a' in self.keys && 'w' in self.keys && nrKeys == 2){
+            }else if (currentColor == 'greenblue' && 'ArrowDown' in self.keys && 'ArrowUp' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'greenred' && 'a' in self.keys && 'd' in self.keys && nrKeys == 2){
+            }else if (currentColor == 'greenred' && 'ArrowDown' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'blueorange' && 'w' in self.keys && 's' in self.keys && nrKeys == 2){
+            }else if (currentColor == 'blueorange' && 'ArrowUp' in self.keys && 'ArrowLeft' in self.keys && nrKeys == 2){
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'blue' && event.key == 'w' && nrKeys == 1) {
+            }else if (currentColor == 'blue' && event.key == 'ArrowUp' && nrKeys == 1) {
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'green' && event.key == 'a' && nrKeys == 1) {
+            }else if (currentColor == 'green' && event.key == 'ArrowDown' && nrKeys == 1) {
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'orange' && event.key == 's' && nrKeys == 1) {
+            }else if (currentColor == 'orange' && event.key == 'ArrowLeft' && nrKeys == 1) {
                 self.incrementProgressBar(currentProgessBar)
-            }else if (currentColor == 'red' && event.key == 'd' && nrKeys == 1) {
+            }else if (currentColor == 'red' && event.key == 'ArrowLeft' && nrKeys == 1) {
                 self.incrementProgressBar(currentProgessBar)
             }
 
